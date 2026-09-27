@@ -1,0 +1,9 @@
+Tried to make a 2D, top down football game.
+Followed Youtube tutorials on how to script a character that follows mouse cursor.
+Also followed Youtube tutorial on how to script ball (RigidBody2D) to have physics
+that gets dragged by the player.
+Missing features I couldn't add:
+	making the ball disappear and reset position when scoring a goal
+	goalkeeper character that repeatedly moves up and down to block the ball
+Bugs:
+	the player will trigger the score count when colliding with the goal

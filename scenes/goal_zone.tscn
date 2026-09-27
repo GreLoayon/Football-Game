@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bee6alit3apfc"]
+
+[ext_resource type="Script" uid="uid://cos0phiixq38d" path="res://scripts/goal_zone.gd" id="1_p635w"]
+
+[node name="Goal zone" type="Area2D" unique_id=236462673]
+script = ExtResource("1_p635w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

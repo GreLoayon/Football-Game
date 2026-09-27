@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://rp4lvpea20xa"]
+
+[ext_resource type="Texture2D" uid="uid://6yysp7nl5gg0" path="res://assets/Sprites/supergoalkeeper/supergoalkeeper/misc/goal.png" id="1_jbojv"]
+
+[node name="Goal" type="Sprite2D" unique_id=226099763]
+position = Vector2(9.536743e-07, 3.8146973e-06)
+rotation = -1.5707964
+scale = Vector2(0.2647846, 0.2647846)
+texture = ExtResource("1_jbojv")

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://ckvycxeehc35i"]
+
+[ext_resource type="PackedScene" uid="uid://c5sgnp4lmudhw" path="res://scenes/player.tscn" id="1_4qel5"]
+[ext_resource type="Texture2D" uid="uid://0qk5g51irtlo" path="res://assets/Sprites/football_field.jpg" id="2_roi5c"]
+[ext_resource type="PackedScene" uid="uid://rp4lvpea20xa" path="res://scenes/goal.tscn" id="4_du78w"]
+[ext_resource type="PackedScene" uid="uid://bee6alit3apfc" path="res://scenes/goal_zone.tscn" id="5_5rxcm"]
+[ext_resource type="PackedScene" uid="uid://gcbabqgc88yr" path="res://scenes/ball.tscn" id="5_d5s2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3prh"]
+size = Vector2(350.4975, 146.4765)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_27xx0"]
+friction = 0.1
+bounce = 0.7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caca7"]
+size = Vector2(292, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7wigo"]
+size = Vector2(10.5, 165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmfti"]
+size = Vector2(9, 163)
+
+[node name="Football game" type="Node2D" unique_id=424325000]
+
+[node name="Player" parent="." unique_id=621549661 instance=ExtResource("1_4qel5")]
+position = Vector2(10, 17)
+motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=931705618]
+position = Vector2(133, 20)
+zoom = Vector2(4, 4)
+
+[node name="FootballField" type="Sprite2D" parent="." unique_id=765864003]
+position = Vector2(131, 20)
+rotation = -1.5707964
+scale = Vector2(0.05405044, 0.0711184)
+texture = ExtResource("2_roi5c")
+
+[node name="Goal" parent="." unique_id=226099763 instance=ExtResource("4_du78w")]
+position = Vector2(261, 15.000001)
+scale = Vector2(0.09557844, 0.09557844)
+
+[node name="Goal zone" parent="." unique_id=236462673 instance=ExtResource("5_5rxcm")]
+position = Vector2(262, 16)
+rotation = -1.5707964
+scale = Vector2(0.09557844, 0.09557844)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal zone" unique_id=1405721843]
+position = Vector2(20.925217, -10.4626465)
+shape = SubResource("RectangleShape2D_v3prh")
+
+[node name="Ball" parent="." unique_id=2084290070 instance=ExtResource("5_d5s2t")]
+position = Vector2(130, 14)
+mass = 0.4
+physics_material_override = SubResource("PhysicsMaterial_27xx0")
+gravity_scale = 0.0
+linear_damp = 2.0
+
+[node name="Borders" type="Node" parent="." unique_id=107625070]
+
+[node name="South" type="StaticBody2D" parent="Borders" unique_id=27616059]
+position = Vector2(130, 101)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/South" unique_id=252315182]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_caca7")
+
+[node name="North" type="StaticBody2D" parent="Borders" unique_id=582131320]
+position = Vector2(130, -61)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/North" unique_id=956439512]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_caca7")
+
+[node name="East" type="StaticBody2D" parent="Borders" unique_id=2063957478]
+position = Vector2(277, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/East" unique_id=822556959]
+position = Vector2(-1.75, 8.5)
+shape = SubResource("RectangleShape2D_7wigo")
+
+[node name="West" type="StaticBody2D" parent="Borders" unique_id=2123918862]
+position = Vector2(-14, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/West" unique_id=1574488467]
+position = Vector2(1.5, 8)
+shape = SubResource("RectangleShape2D_qmfti")
